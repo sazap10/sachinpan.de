@@ -30,3 +30,4 @@ vendor
 # Users Environment Variables
 .lock-wscript
 
+.bowerrc
