@@ -61,7 +61,7 @@ module.exports = function (grunt) {
       all: {
         files: ['public/**/*', 'views/**', '!**/node_modules/**', '!public/vendor/**/*', '!**/*.min.*'],
         options: {
-          livereload: 3006
+          livereload: true
         }
       },
       gruntfile: {

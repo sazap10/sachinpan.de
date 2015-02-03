@@ -31,3 +31,5 @@ vendor
 .lock-wscript
 
 .bowerrc
+*.min.js
+*.min.css
