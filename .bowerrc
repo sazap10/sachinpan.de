@@ -1,0 +1,6 @@
+{
+  "directory": "public/vendor",
+   "proxy":"http://sachin.pande:IndN01,15@webproxy-eh:8080",
+   "https-proxy":"http://sachin.pande:IndN01,15@webproxy-eh:8080",
+   "strict-ssl": false
+}
