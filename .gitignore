@@ -35,3 +35,5 @@ vendor
 *.min.css
 
 .c9/
+
+public/css/

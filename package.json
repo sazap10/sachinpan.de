@@ -14,14 +14,16 @@
   },
   "devDependencies": {
     "grunt": "0.4.x",
-    "grunt-contrib-jshint": "0.11.x",
-    "grunt-contrib-watch": "0.6.x",
     "grunt-concurrent": "1.0.x",
-    "grunt-node-inspector": "0.1.5",
-    "grunt-contrib-cssmin": "0.11.x",
-    "matchdep": "0.3.x",
-    "grunt-contrib-uglify": "0.7.x",
+    "grunt-contrib-clean": "",
     "grunt-contrib-concat": "0.5.x",
-    "grunt-contrib-stylus": "0.20.x"
+    "grunt-contrib-cssmin": "0.11.x",
+    "grunt-contrib-jshint": "0.11.x",
+    "grunt-contrib-stylus": "0.20.x",
+    "grunt-contrib-uglify": "0.7.x",
+    "grunt-contrib-watch": "0.6.x",
+    "grunt-express-server": "^0.4.19",
+    "grunt-node-inspector": "0.1.5",
+    "matchdep": "0.3.x"
   }
 }

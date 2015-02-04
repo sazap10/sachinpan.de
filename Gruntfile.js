@@ -1,5 +1,21 @@
 module.exports = function (grunt) {
   var config = {
+    // Clean
+    express: {
+        dev: {
+            options: {
+                script: 'app.js',
+                debug: true,
+                background: false
+            }
+        }
+    },
+    clean: {
+        // clean:release removes generated files
+        release: [
+            'public/css/*.css'
+        ]
+    },
     jshint: {
       options: {
         ignores: ['node_modules/**', 'public/vendor/**', '**/*.min.js'],
@@ -78,11 +94,18 @@ module.exports = function (grunt) {
       },
       styl: {
         files: ['public/stylus/**/*.styl'],
-        tasks: ['stylus', 'cssmin', 'concat:css']
+        tasks: ['clean', 'stylus', 'cssmin', 'concat:css']
+      },
+       express: {
+        files:  [ '**/*.js' ],
+        tasks:  [ 'express:dev' ],
+        options: {
+          spawn: false // for grunt-contrib-watch v0.5.0+, "nospawn: true" for lower versions. Without this option specified express won't be reloaded
+        }
       }
     },
     concurrent: {
-      tasks: ['node-inspector', 'watch'],
+      tasks: ['express:dev', 'watch'],
       options: {
         logConcurrentOutput: true
       }
@@ -93,5 +116,5 @@ module.exports = function (grunt) {
 
   // Load the tasks
   require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
-  grunt.registerTask('default', ['jshint', 'uglify', 'stylus', 'cssmin', 'concat:css', 'concurrent']);
+  grunt.registerTask('default', ['clean', 'jshint', 'uglify', 'stylus', 'cssmin', 'concat:css', 'concurrent']);
 };
