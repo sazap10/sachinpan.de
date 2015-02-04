@@ -4,7 +4,7 @@
 
 var express        = require('express'),
     path           = require('path'),
-    mongoose       = require('mongoose'),
+  // mongoose       = require('mongoose'),
     logger         = require('morgan'),
     bodyParser     = require('body-parser'),
     compress       = require('compression'),
@@ -15,10 +15,10 @@ var express        = require('express'),
     routes         = require('./routes');
 
 
-mongoose.connect(config.database.url);
-mongoose.connection.on('error', function () {
-  console.log('mongodb connection error');
-});
+// mongoose.connect(config.database.url);
+// mongoose.connection.on('error', function () {
+//   console.log('mongodb connection error');
+// });
 
 var app = express();
 
@@ -35,7 +35,7 @@ app
   .use(compress())
   .use(favicon(__dirname + '/public/ico/favicon.ico'))
   .use(logger('dev'))
-  .use(bodyParser())
+  .use(bodyParser.json())
   .use(methodOverride())
   .use(express.static(path.join(__dirname, 'public')))
   .use(routes.indexRouter)

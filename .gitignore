@@ -33,3 +33,5 @@ vendor
 .bowerrc
 *.min.js
 *.min.css
+
+.c9/

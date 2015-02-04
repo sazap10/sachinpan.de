@@ -1,7 +1,7 @@
 var config = {
   development: {
     server: {
-      port: 3000,
+      port: process.env.PORT,
     },
     database: {
       url: 'mongodb://localhost/website_dev'

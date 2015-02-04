@@ -7,12 +7,9 @@ html
     meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no')
     link(rel='stylesheet', href='/css/app.styles.min.css')
   body
-    nav.navabar.navbar-default(role='navigation')
-      .container
-        .navbar-header
-          a.navbar-brand(href='#')= title
+    include ./nav.jade
     .container
       block content
-    if settings.env == 'development'
-      script(src='http://localhost:35729/livereload.js')
+    // if settings.env == 'development'
+    //   script(src='https://localhost:35729/livereload.js')
     script(src='/js/app.min.js')
