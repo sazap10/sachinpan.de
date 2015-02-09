@@ -6,7 +6,7 @@ module.exports = function (grunt) {
             options: {
                 script: 'app.js',
                 debug: true,
-                background: false
+                //background: false
             }
         }
     },
@@ -29,7 +29,7 @@ module.exports = function (grunt) {
       css: {
         // add your css files over here to concatenate all css files
         // let's save our site users some bandwith
-        src: ['public/vendor/bootstrap/dist/css/bootstrap.min.css', 'public/css/styles.min.css'],
+        src: ['public/vendor/fontawesome/css/font-awesome.min.css','public/vendor/bootstrap/dist/css/bootstrap.min.css', 'public/css/styles.min.css'],
         dest: 'public/css/app.styles.min.css'
       }
     },
@@ -42,7 +42,7 @@ module.exports = function (grunt) {
       target: {
         // add your js files over here to minify them into one javascript source file
         files:{
-          'public/js/app.min.js': ['public/vendor/jquery/dist/jquery.min.js', 'public/vendor/bootstrap/dist/js/bootstrap.min.js', 'public/js/main.js']
+          'public/js/app.min.js': ['public/vendor/jquery/dist/jquery.min.js', 'public/vendor/bootstrap/dist/js/bootstrap.min.js', 'public/vendor/jquery.easing/js/jquery.easing.min.js', 'public/js/main.js']
         }
       }
     },
@@ -74,6 +74,11 @@ module.exports = function (grunt) {
       }
     },
     watch: {
+      options: {
+        debounceDelay:  200,
+        livereload:     true,
+        nospawn:        false
+      },
       all: {
         files: ['public/**/*', 'views/**', '!**/node_modules/**', '!public/vendor/**/*', '!**/*.min.*'],
         options: {
@@ -96,12 +101,22 @@ module.exports = function (grunt) {
         files: ['public/stylus/**/*.styl'],
         tasks: ['clean', 'stylus', 'cssmin', 'concat:css']
       },
-       express: {
+      express: {
         files:  [ '**/*.js' ],
         tasks:  [ 'express:dev' ],
         options: {
           spawn: false // for grunt-contrib-watch v0.5.0+, "nospawn: true" for lower versions. Without this option specified express won't be reloaded
         }
+      }
+    },
+    copy: {
+      main: {
+       files: [{
+         expand: true,
+         cwd: 'public/vendor/fontawesome',
+         src: 'fonts/*',
+         dest: 'public/'
+       }]
       }
     },
     concurrent: {
@@ -116,5 +131,5 @@ module.exports = function (grunt) {
 
   // Load the tasks
   require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
-  grunt.registerTask('default', ['clean', 'jshint', 'uglify', 'stylus', 'cssmin', 'concat:css', 'concurrent']);
+  grunt.registerTask('default', ['clean','copy:main', 'jshint', 'uglify', 'stylus', 'cssmin', 'concat:css' ]);
 };

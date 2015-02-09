@@ -1,13 +1,45 @@
 extends layout
 
-block content
-  .welcome.center-block 
-    h1.text-uppercase= "Hi I'm Sachin"
-    h2.text-uppercase
-      span.dev="Developer"
-      span=", "
-      span.geek="Tech geek"
-      span=" and "
-      span.gamer="avid Gamer"
+block intro
+  section#intro.intro-section
+    .container
+      .row
+        .col-lg-12
+          // img.img-responsive" src="img/profile.png" alt="">
+          .intro-text.text-uppercase
+            span.name="Hi I'm Sachin"
+            hr.star-light
+            span.details
+              span.dev="Developer"
+              span=" - "
+              span.geek="Tech geek"
+              span=" - "
+              span.car="car enthusiast"
+              span=" - "
+              span.gamer="avid Gamer"
+              //"Developer - Tech Geek - car enthusiast - avid Gamer"
+      
+block about
+  section#about.about-section
+    .container
+      .row
+        .col-lg-12
+          h1="About Section"
+
+block contact
+  section#contact.contact-section
+    .container
+      .row
+        .col-lg-12
+          h1="Contact Section"
+
+  // .welcome.vertical-align.text-uppercase
+  //   .row.title
+  //     span.col-xs-12.col-sm-12.col-md-12= "Hi I'm Sachin"
+  //   .row.details
+  //     span.dev.col-xs-12.col-sm-6.col-md-6="Developer"
+  //     span.col-xs-12.col-sm-6.col-md-6.geek="Tech geek"
+  //     span.col-xs-12.col-sm-6.col-md-6.car="car enthusiast"
+  //     span.col-xs-12.col-sm-6.col-md-6.gamer="avid Gamer"
   //content goes here
 

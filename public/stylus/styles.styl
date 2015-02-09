@@ -1,20 +1,131 @@
+/*
+Colours definition
+*/
+
+body-bk-colour = #363635
+navbar-bk-colour = #D75C37
+white-colour = #f5f5f5
+navbar-hover-bk-colour = #B43D1A
+dev-colour = #5cb85c
+geek-colour = #5bc0de
+car-colour = #f0ad4e
+gamer-colour =  #d9534f
+
+html, body
+  width: 100%
+  height: 100%
+
+
+
 body
-  font-family: Arial, Helvetica, sans-serif
+  font-family: 'Roboto Condensed', sans-serif
   font-weight: normal
   -webkit-font-smoothing: antialiased
-  background-color: #363635
+  background-color: body-bk-colour
+
+@media(min-width:768px)
+  .navbar
+    padding: 25px 0
+    -webkit-transition: background .5s ease-in-out,padding .5s ease-in-out
+    -moz-transition: background .5s ease-in-out,padding .5s ease-in-out
+    transition: background .5s ease-in-out,padding .5s ease-in-out
+
+  .top-nav-collapse 
+    padding: 0;
+
+  .intro-section .container
+    padding-bottom: 100px
+    padding-top: 200px
+    
+  .intro-section .intro-text .name 
+    font-size: 4.75em;
+    
+
+  .intro-section .intro-text .details 
+    font-size: 1.75em;
+    
+@media(max-width:767px)
+    section 
+        padding: 75px 0
+    
 
 .navbar-website
   margin-bottom: 0
-  background-color: #D75C37
+  background-color: navbar-bk-colour
   border-bottom: 0
 
 .navbar-website .navbar-toggle .icon-bar
-  background-color: #f5f5f5
+  background-color: white-colour
   
-.nav.navbar-nav a, a.navbar-brand
-  color: #F5F5F5
+.nav.navbar-nav a, .navbar-brand, .navbar-brand:hover, .navbar-brand:focus, .navbar-brand:focus
+  color: white-colour
 
-.nav>li>a:focus, .nav>li>a:hover, .nav>li.active
-  background-color: #B43D1A
+.nav>li>a:focus, .nav>li>a:hover, .nav>.active
+  background-color: navbar-hover-bk-colour
   
+.dev 
+  color: dev-colour
+  
+.geek
+  color:geek-colour
+  
+.car
+  color: car-colour
+
+.gamer
+  color: gamer-colour
+  
+.intro-text .name
+  display: block
+  font-size: 2em
+  font-weight: 700
+  
+.intro-text .details
+  font-size: 1.25em;
+  font-weight: 300;
+  
+.intro-section, .about-section, .contact-section
+  height: 100%
+  padding-top: 150px
+  text-align: center
+
+.intro-section
+    background: body-bk-colour
+    color: white-colour
+
+.about-section 
+    background: #ccc
+
+.contact-section 
+    background: #bbb
+
+hr.star-light, hr.star-primary 
+    margin: 25px auto 30px
+    padding: 0
+    max-width: 250px
+    border: 0
+    border-top: solid 5px
+    text-align: center
+    &:after
+      content: "\f005"
+      display: inline-block
+      position: relative
+      top: -.8em
+      padding: 0 .25em
+      font-family: FontAwesome
+      font-size: 2em
+
+
+hr.star-light 
+    border-color: #fff
+    &:after
+      color: #fff
+      background-color: body-bk-colour
+
+
+
+hr.star-primary 
+    border-color: #2c3e50
+    &:after
+      color: #2c3e50
+      background-color: #fff
