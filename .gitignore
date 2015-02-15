@@ -37,3 +37,6 @@ vendor
 .c9/
 
 public/css/
+
+#for hiding mailgun api key
+config.js
