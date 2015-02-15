@@ -42,7 +42,7 @@ module.exports = function (grunt) {
       target: {
         // add your js files over here to minify them into one javascript source file
         files:{
-          'public/js/app.min.js': ['public/vendor/jquery/dist/jquery.min.js', 'public/vendor/bootstrap/dist/js/bootstrap.min.js', 'public/vendor/jquery.easing/js/jquery.easing.min.js', 'public/js/main.js']
+          'public/js/app.min.js': ['public/vendor/jquery/dist/jquery.min.js', 'public/vendor/jqBootstrapValidation/dist/jqBootstrapValidation-1.3.7.min.js', 'public/vendor/bootstrap/dist/js/bootstrap.min.js', 'public/vendor/jquery.easing/js/jquery.easing.min.js', 'public/js/main.js']
         }
       }
     },
@@ -76,8 +76,7 @@ module.exports = function (grunt) {
     watch: {
       options: {
         debounceDelay:  200,
-        livereload:     true,
-        nospawn:        false
+        livereload:     true
       },
       all: {
         files: ['public/**/*', 'views/**', '!**/node_modules/**', '!public/vendor/**/*', '!**/*.min.*'],

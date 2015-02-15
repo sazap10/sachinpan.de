@@ -1,13 +1,13 @@
 extends layout
 
-block intro
-  section#intro.intro-section
+block content
+  section#intro.intro-section.text-center
     .container
       .row
         .col-lg-12
-          // img.img-responsive" src="img/profile.png" alt="">
+          img.img-responsive.img-circle.img-centered(src="img/profile.png")
           .intro-text.text-uppercase
-            span.name="Hi I'm Sachin"
+            span.name="Hi, I'm Sachin"
             hr.star-light
             span.details
               span.dev="Developer"
@@ -17,29 +17,46 @@ block intro
               span.car="car enthusiast"
               span=" - "
               span.gamer="avid Gamer"
-              //"Developer - Tech Geek - car enthusiast - avid Gamer"
-      
-block about
-  section#about.about-section
+
+  section#about.about-section.text-center
     .container
       .row
         .col-lg-12
-          h1="About Section"
+          h1.text-uppercase="About me"
+          hr.star-about
 
-block contact
   section#contact.contact-section
     .container
-      .row
+      .row.text-center
         .col-lg-12
-          h1="Contact Section"
-
-  // .welcome.vertical-align.text-uppercase
-  //   .row.title
-  //     span.col-xs-12.col-sm-12.col-md-12= "Hi I'm Sachin"
-  //   .row.details
-  //     span.dev.col-xs-12.col-sm-6.col-md-6="Developer"
-  //     span.col-xs-12.col-sm-6.col-md-6.geek="Tech geek"
-  //     span.col-xs-12.col-sm-6.col-md-6.car="car enthusiast"
-  //     span.col-xs-12.col-sm-6.col-md-6.gamer="avid Gamer"
-  //content goes here
+          h1.text-uppercase="Contact Me"
+          hr.star-light
+      .row
+        .col-lg-8.col-lg-offset-2
+          form#contactForm(name="sentMessage" novalidate="")
+            .row.control-group
+              .form-group.col-xs-12.floating-label-form-group.controls
+                label Name
+                input#name.form-control(type="text" placeholder="Name" required="" data-validation-required-message="Please enter your name.")
+                p.help-block.text-danger
+            .row.control-group
+              .form-group.col-xs-12.floating-label-form-group.controls
+                label Email Address
+                input#email.form-control(type="email" placeholder="Email Address" required="" data-validation-required-message="Please enter your email address.")
+                p.help-block.text-danger
+            .row.control-group
+              .form-group.col-xs-12.floating-label-form-group.controls
+                label Message
+                textarea#message.form-control(rows="5" placeholder="Message" required="" data-validation-required-message="Please enter a message.")
+                p.help-block.text-danger
+            br
+            #success
+            .row
+              .form-group.col-xs-12
+                button.btn.btn-form.btn-lg(type="submit") Send
+                
+  footer.text-center
+    .container
+      .row
+        .col-lg-12 Copyright &copy; Sachin Pande 2015
 

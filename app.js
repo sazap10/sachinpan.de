@@ -12,7 +12,8 @@ var express        = require('express'),
     methodOverride = require('method-override'),
     errorHandler   = require('errorhandler'),
     config         = require('./config'),
-    routes         = require('./routes');
+    routes         = require('./routes'),
+    contact         = require('./routes/contact');
 
 
 // mongoose.connect(config.database.url);
@@ -35,10 +36,13 @@ app
   .use(compress())
   .use(favicon(__dirname + '/public/ico/favicon.ico'))
   .use(logger('dev'))
-  .use(bodyParser.json())
+  .use(bodyParser.urlencoded({     // to support URL-encoded bodies
+      extended: true
+    }))
   .use(methodOverride())
   .use(express.static(path.join(__dirname, 'public')))
   .use(routes.indexRouter)
+  .use('/contact', contact)
   .use(function (req, res) {
     res.status(404).render('404', {title: 'Not Found :('});
   });
