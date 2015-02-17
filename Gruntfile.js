@@ -74,10 +74,10 @@ module.exports = function (grunt) {
       }
     },
     watch: {
-      options: {
-        debounceDelay:  200,
-        livereload:     true
-      },
+      // options: {
+      //   debounceDelay:  200,
+      //   livereload:     true
+      // },
       all: {
         files: ['public/**/*', 'views/**', '!**/node_modules/**', '!public/vendor/**/*', '!**/*.min.*'],
         options: {
@@ -100,13 +100,13 @@ module.exports = function (grunt) {
         files: ['public/stylus/**/*.styl'],
         tasks: ['clean', 'stylus', 'cssmin', 'concat:css']
       },
-      express: {
-        files:  [ '**/*.js' ],
-        tasks:  [ 'express:dev' ],
-        options: {
-          spawn: false // for grunt-contrib-watch v0.5.0+, "nospawn: true" for lower versions. Without this option specified express won't be reloaded
-        }
-      }
+      // express: {
+      //   files:  [ '**/*.js' ],
+      //   tasks:  [ 'express:dev' ],
+      //   options: {
+      //     spawn: false // for grunt-contrib-watch v0.5.0+, "nospawn: true" for lower versions. Without this option specified express won't be reloaded
+      //   }
+      // }
     },
     copy: {
       main: {

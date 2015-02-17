@@ -49,7 +49,7 @@ section
   .top-nav-collapse 
     padding: 0;
 
-  .intro-section .container
+  .intro-section .container, .not-found .container
     padding-bottom: 100px
     padding-top: 100px
     
@@ -99,7 +99,6 @@ section
 
 .intro-text .name
   text-shadow: 3px 3px 0px navbar-bk-colour;
-  display: block
   font-size: 2em
   font-weight: 700
   
@@ -109,7 +108,7 @@ section
 
 
   
-.intro-section, .contact-section, footer
+.intro-section, .contact-section, footer, .not-found
   background: body-bk-colour
   color: white-colour
 
@@ -126,7 +125,7 @@ hr.star-contact, hr.star-light , hr.star-about
   border-top: solid 5px
   text-align: center
   &:after
-    content: "\f005"
+    content: "\f1d0"
     display: inline-block
     position: relative
     top: -.8em
@@ -138,6 +137,7 @@ hr.star-contact, hr.star-light , hr.star-about
 hr.star-about 
   border-color: body-bk-colour
   &:after
+    content: "\f1d1"
     color: body-bk-colour
     background-color: about-bk-colour
 
@@ -215,3 +215,7 @@ form .row:first-child .floating-label-form-group
   border-colour: #8e2304
   &:hover
     background-color: navbar-hover-bk-colour
+
+h1.title
+  display: inline-block
+  

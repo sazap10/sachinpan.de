@@ -97,3 +97,14 @@ $(function() {
 $('#name').focus(function() {
     $('#success').html('');
 });
+
+$(function() {
+   $('hr').each(function () {
+        var sibling = $(this).siblings('.title');
+        if(sibling.length === 1){ 
+            var width = sibling.css('width');
+            console.log(width);
+            $(this).css('max-width', width);
+        }
+    });
+});

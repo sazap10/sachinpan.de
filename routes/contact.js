@@ -1,5 +1,5 @@
 var express = require('express'),
-    config  = require("../config"),
+    config  = require('../config'),
     Mailgun = require('mailgun-js');
 
 //Your api key, from Mailgun’s Control Panel
@@ -52,11 +52,11 @@ module.exports = (function() {
             //If there is an error
             if (err) {
                 res.status(500).send('Error sending email.');
-                console.log("Error sending email: ", err);
+                console.log('Error sending email: ', err);
             }
             else {
-                res.send("Email sent.");
-                console.log("Success sending email: "+body);
+                res.send('Email sent.');
+                console.log('Success sending email: '+body);
             }
         });
     });

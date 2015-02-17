@@ -5,6 +5,7 @@
 
 exports.index = function (req, res) {
   res.render('index', {
-    title: 'Sachin Pande'
+    title: 'Sachin Pande',
+    currentUrl: '/'
   });
 };

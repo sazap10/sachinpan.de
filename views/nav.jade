@@ -1,13 +1,14 @@
+p=currentUrl
 nav.navbar.navbar-website.navbar-fixed-top(role="navigation")
     .container
         .navbar-header.page-scroll
-            a.navbar-brand.page-scroll(href="#page-top")="Sachin Pande"
+            a.navbar-brand.page-scroll(href=(currentUrl === '/')?"#page-top":"/#page-top")="Sachin Pande"
             a.navbar-toggle(data-toggle="collapse" data-target=".navbar-collapse")
                 span.icon-bar
                 span.icon-bar
                 span.icon-bar
         .navbar-collapse.collapse
             ul.nav.navbar-nav
-                li: a.page-scroll(href="#page-top")="Home"
-                li: a.page-scroll(href="#about")="About Me"
-                li: a.page-scroll(href="#contact")="Contact Me"
+                li: a.page-scroll(href=(currentUrl === '/')?"#page-top":"/#page-top")="Home"
+                li: a.page-scroll(href=(currentUrl === '/')?"#about":"/#about")="About Me"
+                li: a.page-scroll(href=(currentUrl === '/')?"#contact":"/#contact")="Contact Me"
