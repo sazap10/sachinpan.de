@@ -77,10 +77,10 @@ module.exports = function (grunt) {
       }
     },
     watch: {
-      // options: {
-      //   debounceDelay:  200,
-      //   livereload:     true
-      // },
+      options: {
+        debounceDelay:  200,
+        // livereload:     true
+      },
       // all: {
       //   files: ['public/**/*', 'views/**', '!**/node_modules/**', '!public/vendor/**/*', '!**/*.min.*'],
       //   options: {
@@ -103,13 +103,10 @@ module.exports = function (grunt) {
         files: ['public/stylus/**/*.styl'],
         tasks: ['clean', 'stylus', 'autoprefixer', 'cssmin', 'concat:css']
       },
-      // express: {
-      //   files:  [ '**/*.js' ],
-      //   tasks:  [ 'express:dev' ],
-      //   options: {
-      //     spawn: false // for grunt-contrib-watch v0.5.0+, "nospawn: true" for lower versions. Without this option specified express won't be reloaded
-      //   }
-      // }
+      express: {
+        files:  [ 'app.js' ],
+        tasks:  [ 'forever:server1:restart' ],
+      }
     },
     copy: {
       main: {
@@ -122,7 +119,7 @@ module.exports = function (grunt) {
       }
     },
     concurrent: {
-      tasks: ['express:dev', 'watch'],
+      tasks: ['forever:server1:start', 'watch'],
       options: {
         logConcurrentOutput: true
       }
@@ -132,6 +129,14 @@ module.exports = function (grunt) {
           src: 'public/css/styles.css',
           dest: 'public/css/styles.css'
       },
+    },
+    forever: {
+      server1: {
+        options: {
+          index: 'app.js',
+          logDir: 'logs'
+        }
+      },
     }
   };
 
@@ -140,5 +145,5 @@ module.exports = function (grunt) {
   // Load the tasks
   require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
   grunt.registerTask('css', ['stylus', 'autoprefixer', 'cssmin', 'concat:css' ]);
-  grunt.registerTask('default', ['clean','copy:main', 'jshint', 'uglify', 'css', 'watch' ]);
+  grunt.registerTask('default', ['clean','copy:main', 'jshint', 'uglify', 'css', 'concurrent' ]);
 };
