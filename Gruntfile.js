@@ -105,7 +105,7 @@ module.exports = function (grunt) {
       },
       express: {
         files:  [ 'app.js' ],
-        tasks:  [ 'forever:server1:restart' ],
+        tasks:  [ 'forever:restart' ],
       }
     },
     copy: {
