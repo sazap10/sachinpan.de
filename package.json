@@ -1,6 +1,10 @@
 {
   "name": "sachinpan.de",
   "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sazap10/sachinpan.de.git"
+  },
   "dependencies": {
     "body-parser": "1.11.x",
     "compression": "1.4.x",
@@ -9,12 +13,12 @@
     "jade": "1.9.x",
     "mailgun-js": "^0.6.8",
     "method-override": "2.3.x",
-    "mongoose": "3.8.x",
     "morgan": "1.5.x",
     "serve-favicon": "2.2.x"
   },
   "devDependencies": {
     "grunt": "0.4.x",
+    "grunt-autoprefixer": "^2.2.0",
     "grunt-concurrent": "1.0.x",
     "grunt-contrib-clean": "",
     "grunt-contrib-concat": "0.5.x",

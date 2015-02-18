@@ -40,7 +40,7 @@ app
       extended: true
     }))
   .use(methodOverride())
-  .use(express.static(path.join(__dirname, 'public')))
+  .use(express.static(path.join(__dirname, 'public'), { maxAge: 86400000 }))
   .use(routes.indexRouter)
   .use('/contact', contact)
   .use(function (req, res) {

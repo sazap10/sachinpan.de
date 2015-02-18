@@ -19,7 +19,7 @@ module.exports = function (grunt) {
     jshint: {
       options: {
         ignores: ['node_modules/**', 'public/vendor/**', '**/*.min.js'],
-        jshintrc: '.jshintrc'
+        jshintrc: '.jshintrc',
       },
       gruntfile: 'Gruntfile.js',
       server: ['controllers/**/*.js', 'models/**/*.js', 'routes/**/*.js', 'app.js', 'config.js'],
@@ -36,7 +36,10 @@ module.exports = function (grunt) {
     uglify: {
       options: {
         mangle: {
-          except: ['jQuery']
+          except: ['jQuery'],
+        },
+        compress: {
+          drop_console: true // <-
         }
       },
       target: {
@@ -78,12 +81,12 @@ module.exports = function (grunt) {
       //   debounceDelay:  200,
       //   livereload:     true
       // },
-      all: {
-        files: ['public/**/*', 'views/**', '!**/node_modules/**', '!public/vendor/**/*', '!**/*.min.*'],
-        options: {
-          livereload: true
-        }
-      },
+      // all: {
+      //   files: ['public/**/*', 'views/**', '!**/node_modules/**', '!public/vendor/**/*', '!**/*.min.*'],
+      //   options: {
+      //     livereload: true
+      //   }
+      // },
       gruntfile: {
         files: 'Gruntfile.js',
         tasks: 'jshint:gruntfile'
@@ -98,7 +101,7 @@ module.exports = function (grunt) {
       },
       styl: {
         files: ['public/stylus/**/*.styl'],
-        tasks: ['clean', 'stylus', 'cssmin', 'concat:css']
+        tasks: ['clean', 'stylus', 'autoprefixer', 'cssmin', 'concat:css']
       },
       // express: {
       //   files:  [ '**/*.js' ],
@@ -123,6 +126,12 @@ module.exports = function (grunt) {
       options: {
         logConcurrentOutput: true
       }
+    },
+    autoprefixer: {
+      main: {
+          src: 'public/css/styles.css',
+          dest: 'public/css/styles.css'
+      },
     }
   };
 
@@ -130,5 +139,6 @@ module.exports = function (grunt) {
 
   // Load the tasks
   require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
-  grunt.registerTask('default', ['clean','copy:main', 'jshint', 'uglify', 'stylus', 'cssmin', 'concat:css' ]);
+  grunt.registerTask('css', ['stylus', 'autoprefixer', 'cssmin', 'concat:css' ]);
+  grunt.registerTask('default', ['clean','copy:main', 'jshint', 'uglify', 'css', 'watch' ]);
 };
