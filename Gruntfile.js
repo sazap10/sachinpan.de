@@ -145,5 +145,5 @@ module.exports = function (grunt) {
   // Load the tasks
   require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
   grunt.registerTask('css', ['stylus', 'autoprefixer', 'cssmin', 'concat:css' ]);
-  grunt.registerTask('default', ['clean','copy:main', 'jshint', 'uglify', 'css', 'concurrent' ]);
+  grunt.registerTask('default', ['clean','copy:main', 'jshint', 'uglify', 'css', 'watch' ]);
 };
