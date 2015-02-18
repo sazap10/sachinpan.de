@@ -4,7 +4,7 @@ var config = {
     server: {
       port: process.env.PORT,
     },
-    mailgunApiKey: 'MAILGUN-API-KEY'
+    mailgunApiKey: 'key-9bd4rphdayz03zzbl862csif408arem3'
   },
   testing: {
     server: {
