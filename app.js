@@ -34,7 +34,7 @@ app.set('view engine', 'jade');
 
 app
   .use(compress())
-  .use(favicon(__dirname + '/public/ico/favicon.ico'))
+  .use(favicon(__dirname + '/public/favicon.ico'))
   .use(logger('dev'))
   .use(bodyParser.urlencoded({     // to support URL-encoded bodies
       extended: true
