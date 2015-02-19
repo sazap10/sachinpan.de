@@ -155,5 +155,5 @@ module.exports = function (grunt) {
   grunt.registerTask('css', ['stylus', 'autoprefixer', 'cssmin', 'concat:css' ]);
   grunt.registerTask('build', ['clean','copy:main', 'jshint', 'uglify', 'css' ]);
   grunt.registerTask('dev', ['env:dev', 'build', 'watch' ]);
-  grunt.registerTask('prod', ['env:build', 'build', 'forever:server1:start' ]);
+  grunt.registerTask('prod', ['env:build', 'build', 'forever:server1:restart' ]);
 };
