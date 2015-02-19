@@ -137,7 +137,15 @@ module.exports = function (grunt) {
           logDir: 'logs'
         }
       },
-    }
+    },
+    env : {
+      dev : {
+        NODE_ENV : 'development'
+      },
+      build : {
+        NODE_ENV : 'production'
+      }
+    },
   };
 
   grunt.initConfig(config);
@@ -145,5 +153,7 @@ module.exports = function (grunt) {
   // Load the tasks
   require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
   grunt.registerTask('css', ['stylus', 'autoprefixer', 'cssmin', 'concat:css' ]);
-  grunt.registerTask('default', ['clean','copy:main', 'jshint', 'uglify', 'css', 'watch' ]);
+  grunt.registerTask('build', ['clean','copy:main', 'jshint', 'uglify', 'css' ]);
+  grunt.registerTask('dev', ['env:dev', 'build', 'watch' ]);
+  grunt.registerTask('prod', ['env:build', 'build' ]);
 };
