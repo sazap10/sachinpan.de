@@ -22,6 +22,7 @@ module.exports = (function() {
     var contact = express.Router();
 
     contact.post('/', function(req, res) {
+        console.log(apiKey);
         var name = req.body.name;
         var email = req.body.email;
         var message = req.body.message;
